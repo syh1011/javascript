@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 생성자 함수</title>
+	<script type="text/javascript" src="util.min.js"></script>
+	<script src="//code.jquery.com/jquery-2.0.1.js"></script>
+	<script type="text/javascript">
+	
+		var list = new ArrayList();
+		list.add('a');
+		list.add('b');
+		list.add('c');
+		
+		list.remove(1);
+		
+		for(var i=0;i<list.size();i++){
+			console.log(list.get(i));
+		}
+	
+		var Student = function(name, korean, math){
+			this.name = name;
+			this.korean = korean;
+			this.math = math;
+			/*
+			this.getSum = function(){
+				return this.korean + this.math;
+			}
+			*/
+		}
+		Student.prototype.getSum = function(){
+			return this.korean + this.math;
+		}
+		
+		var s1 = new Student('성영한',80,90);
+		console.log(s1.name);
+		console.log(s1.korean);
+		console.log(s1.math);
+		console.log(s1.getSum());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

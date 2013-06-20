@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 이벤트 처리(Listener 방식)</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var test = document.getElementById('test');
+			if(test.addEventListener){
+				test.addEventListener('click', function(){
+					alert('click');
+				}, false);
+			}else if(test.attachEvent){
+				test.attachEvent('onclick', function(){
+					alert('click');
+				});
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id='test' value='클릭이벤트'/>
+</body>
+</html>
+
+
+
+
+

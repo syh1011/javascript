@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JSON for Ajax</title>
+	<script type="text/javascript">
+		var xhr = null;
+		try{
+			xhr = new XMLHttpRequest();
+		}catch(e){
+			try{
+				xhr = new ActiveXObject('Msxml2.XMLHTTP');
+			}catch(e){
+				xhr = new ActiveXObject('Microsoft.XMLHTTP');
+			}
+		}
+		if(xhr == null){
+			alert("Error creating xhr object");
+		}
+		function setOptions(){
+			//console.log('a');
+			var url = 'json_data.jsp';
+			xhr.open('GET', url , true);
+			xhr.onreadystatechange = function(){
+				//console.log('b');
+				if(xhr.readyState == 4 && xhr.status==200){
+					console.log(xhr.responseText);
+					var json = JSON.parse(xhr.responseText);
+					var s = document.getElementById('sel');
+					
+					for(var i in json.cafelist){
+						var name = json.cafelist[i].name;
+						var clubid = json.cafelist[i].clubid;
+						s.options.add(new Option(name, clubid),i);
+					}
+				}
+			}
+			xhr.send(null);
+		}
+	</script>
+</head>
+<body>
+	<select id="sel"></select>
+	<a href='javascript:setOptions();'>[setup]</a>
+</body>
+</html>
+
+
+
+
+

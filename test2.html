@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 내장 객체</title>
+	<script type="text/javascript">
+		var test1;
+		console.log(test1); // error message => test1 is not defined
+						  // message => undefined
+		
+		var test2 = "111111";
+		test2 = test2.concat("-1111118");
+		
+		console.log('test2 : '+test2);
+		console.log('test2 length : '+test2.length);
+		
+		for(var i=0;i<test2.length;i++){
+			console.log(test2.charAt(i));
+		}
+		
+		console.log(test2.substring(0, test2.indexOf('-')));	
+		console.log(test2.substring(test2.indexOf('-')+1));
+		
+		function juminCheck(){
+			var jumin = document.getElementById("jumin").value;
+			console.log('jumin : '+jumin);
+			
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id='jumin' />
+	<button onclick="juminCheck()">주민번호검사</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

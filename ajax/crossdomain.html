@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript">
+		function success(json){
+			console.log(JSON.stringify(json));
+			document.getElementById('rssPanel').innerHTML=JSON.stringify(json);
+		}
+		
+		function loadScript(url){
+			//console.log(url);
+			var dScript = document.createElement('script');
+			dScript.src = url;
+			document.head.appendChild(dScript);	
+		}
+		
+		window.onload = function(){
+			loadScript('http://apis.daum.net/search/book?apikey=DAUM_SEARCH_DEMO_APIKEY&output=json&callback=success&q=java');
+		}
+	</script>
+	
+</head>
+<body>
+	<div id='rssPanel'>
+	</div>
+</body>
+</html>

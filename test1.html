@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>변수 테스트</title>
+	<script>
+		//자바스크립트의 전역범위에서는 var의 사용여부는 차이가 없음.
+		var test1 = 'test1';
+		test2 = 'test2';
+		
+		function method1(){
+			//지역범위에서는 var를 사용하는 경우는 지역변수로 설정
+			//var를 사용하지 않는 경우는 전역변수로 설정.
+		 	 test3 = 'test3';
+			method2();
+		}
+		
+		function method2(){
+			console.log('test3 : '+test3);
+		}
+		
+		method1();
+		//var test4;
+		console.log(test4);
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

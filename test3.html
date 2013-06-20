@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 배열 </title>
+	<script type="text/javascript">
+		var test = [1,2,3,4,5,6];
+		// == 값비교 === 값비교 + 자료형비교 
+		// true , "true"
+		console.log(test);
+		console.log(test.join(''));//배열을 출력할때 구분자를 바꾸는 함수
+		
+		console.log(test.splice(2,1,7));// 2=> start , 1=> length , 7 => 대체할 객체 
+		
+		console.log(test);//splice은 원본이 바뀜 
+		
+		console.log(test.slice(2,4)); //2=> start, 4=>end
+		
+		console.log(test);//slice은 원본이 안바뀜
+		
+		test.push(8);
+		
+		for(var i in test){
+		//for(var i=0 ;i<test.length; i++){
+			console.log(value);
+		}
+		
+		function generateLotto(){
+			var lottoArray = [];
+			for(var i=0;i<5;i++){
+				var lotto = [];
+				for(var j=0;j<6;j++){
+					lotto[j] = Math.floor(Math.random()*45) + 1; 
+					
+					for(var k=0;k<j;k++){
+						if(lotto[j]==lotto[k]){
+							j--;
+							break;
+						}
+					}
+					
+				}//end second for
+				lottoArray[i] = lotto;
+			}// end first for
+			
+			document.getElementById("lotto").style.display = "block";
+			document.getElementById("lotto").innerHTML = lottoArray.join("<br/>");
+			
+			
+		}//end generateLotto
+	</script>
+	<style type="text/css">
+		#lotto{
+			border : 1px solid black;
+			width : 200px;
+			padding : 5px;
+		}
+	</style>	
+</head>
+<body>
+	<button onclick='generateLotto()'>로또번호생성기</button>
+	<div id="lotto" style="display:none">
+	
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

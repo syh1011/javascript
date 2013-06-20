@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 이벤트 전파</title>
+	<style type="text/css">
+		#boxA{
+			background-color : pink;
+			width : 250px;
+			height : 250px;
+		}
+		#boxB{
+			background-color : yellow;
+			width : 100px;
+			height : 100px;
+		}
+	</style>
+	<script type="text/javascript">
+		function test1(event){
+			alert('test1');
+		}
+		function test2(event){
+			event.stopPropagation();
+			alert('test2');
+		}
+		
+		
+	</script>
+</head>
+<body>
+	<div id='boxA' onclick='test1(event)'>
+		<p> BoxA</p>
+		<div id='boxB' onclick='test2(event)'>
+			<p> BoxB</p>
+		</div>
+	</div>
+	
+	
+	
+	
+</body>
+</html>

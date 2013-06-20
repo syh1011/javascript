@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<style>
+	#boxA, #boxB {
+	   float:left;padding:10px;margin:10px;
+	   -moz-user-select:none;
+	}
+	#boxA { background-color: #6633FF; width:205px; 
+	height:275px;  }
+	#boxB { background-color: #FF6699; width:150px; 
+	height:150px; }
+	</style>
+	<script type="text/javascript">
+			function test1(ev){
+				alert('test1');
+			}
+			
+			function test2(ev){
+				ev.stopPropagation();
+				alert('test2');
+			}
+			function test3(event){
+				event.preventDefault();
+				alert('test');
+			}
+	</script>
+	</head>
+	<body>
+		<a href="http://www.naver.com" onClick="test3(event)">여기</a>
+		<h2>Drag and drop HTML5 demo</h2>
+		<div>Try to move the purple box into the pink box.</div>
+		
+		<div id="boxA" onclick='javascript:test1(event)'>
+		   <p>Drag Me</p>
+		
+		<div id="boxB" onclick='javascript:test2(event)'>Dustbin</div>
+			 </div>
+		<div id="msg"></div>
+		
+	</body>
+</html>
+
