@@ -19,10 +19,12 @@
 		}
 		function setOptions(){
 			//console.log('a');
-			var url = 'json_data.jsp';
+			//var url = 'json_data.jsp';
+			var url ='http://apis.daum.net/search/book?apikey=DAUM_SEARCH_DEMO_APIKEY&output=json&q=java';
 			xhr.open('GET', url , true);
 			xhr.onreadystatechange = function(){
 				//console.log('b');
+				/*
 				if(xhr.readyState == 4 && xhr.status==200){
 					console.log(xhr.responseText);
 					var json = JSON.parse(xhr.responseText);
@@ -34,6 +36,7 @@
 						s.options.add(new Option(name, clubid),i);
 					}
 				}
+				*/
 			}
 			xhr.send(null);
 		}
