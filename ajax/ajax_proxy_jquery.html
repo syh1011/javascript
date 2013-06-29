@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JSON for Ajax jQuery</title>
+	<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#testBtn').bind('click',function(){
+				
+				$.ajax({
+					url : 'proxy1.jsp',
+					type : 'POST',
+					data : {url : 'http://apis.daum.net/search/book?apikey=DAUM_SEARCH_DEMO_APIKEY&output=xml&q=java'},
+					dataType : 'xml',
+					timeout : 1000,//최대시간설정(밀리세컨드로 설정)
+					success : function(xml){
+						$(xml).find('item').each(function(){
+							$('#getJsonp').append($(this).find('title').text()+"<br/>");
+						});
+					},
+					error : function(error){
+						alert('Error loading XML');
+					},
+				});
+				
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<button id='testBtn'>CrossDomain XML</button>
+	<div id="getJsonp">
+	
+	</div>
+</body>
+</html>
+
+
+
+
+

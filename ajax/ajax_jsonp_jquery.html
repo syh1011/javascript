@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JSON for Ajax jQuery</title>
+	<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#testBtn').bind('click',function(){
+				var url = 'http://apis.daum.net/search/book?apikey=DAUM_SEARCH_DEMO_APIKEY&output=json&q=java&callback=?';
+				$.getJSON(url, function(json){
+					$('#getJsonp').append(JSON.stringify(json));
+				});
+				/*
+				$.ajax({
+					url : 'http://apis.daum.net/search/book?apikey=DAUM_SEARCH_DEMO_APIKEY&output=json&q=java',
+					type : 'GET',
+					dataType : 'jsonp',
+					jsonp : 'callback',//callback key
+					timeout : 1000,//최대시간설정(밀리세컨드로 설정)
+					success : function(json){
+						$('#getJsonp').append(JSON.stringify(json));
+					}
+				});
+				*/
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<button id='testBtn'>jsonp</button>
+	<div id="getJsonp">
+	
+	</div>
+</body>
+</html>
+
+
+
+
+
